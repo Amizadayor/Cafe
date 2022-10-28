@@ -47,8 +47,11 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
 
 /*----------------  CREACIÓN DE LAS RUTAS DE LA TABLA USUARIO ----------- */
 
-// http://localhost:8080/api/usuario --> GET
+    // http://localhost:8080/api/usuario --> GET
     $routes->get('usuario', 'Usuario::index');
+
+    // http://localhost:8080/api/usuario/show/(id) --> SHOW
+    $routes->get('usuario/show/(:num)','Usuario::show/$1');
 
     // http://localhost:8080/api/usuario/create --> CREAR
     $routes->post('usuario/create', 'Usuario::create');
