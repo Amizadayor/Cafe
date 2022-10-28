@@ -44,17 +44,21 @@ $routes->get('/', 'Home::index');
 
 // DIRECCIÓN DE LA API --> http://localhost:8080/api
 $routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
-    // http://localhost:8080/api/usuario --> GET
+
+/*----------------  CREACIÓN DE LAS RUTAS DE LA TABLA USUARIO ----------- */
+
+// http://localhost:8080/api/usuario --> GET
     $routes->get('usuario', 'Usuario::index');
 
     // http://localhost:8080/api/usuario/create --> CREAR
     $routes->post('usuario/create', 'Usuario::create');
 
-    // http://localhost:8080/api/usuario --> EDITAR
-    $routes->get('usuario/edit/(:num)', 'Usuario::edit/$1');
-
-    // http://localhost:8080/api/usuario --> EDITAR
+    // http://localhost:8080/api/usuario/update/(id) --> EDITAR
     $routes->put('usuario/update/(:num)', 'Usuario::update/$1');
+
+    // http://localhost:8080/api/usuario/delete/(id) --> ELIMINAR
+    $routes->delete('usuario/delete/(:num)', 'Usuario::delete/$1');
+
 });
 
 /*--------------------------------------------------- */
