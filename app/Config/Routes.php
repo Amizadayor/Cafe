@@ -37,6 +37,26 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+
+
+
+/*----------------  CREACIÓN DE LAS RUTAS ----------- */
+
+// DIRECCIÓN DE LA API --> http://localhost:8080/api
+$routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
+   // http://localhost:8080/api/Usuario --> GET
+    $routes->get('usuario', 'Usuario::index');
+
+    // http://localhost:8080/api/Usuario/create --> CREATE
+    $routes->post('usuario/create', 'Usuario::create');
+});
+
+/*--------------------------------------------------- */
+
+
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

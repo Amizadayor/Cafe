@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS cafe;
 CREATE DATABASE cafe;
 USE cafe;
 
-CREATE TABLE Usuario(
+CREATE TABLE usuario(
     Id int not null primary key auto_increment,
     Nombre_1 varchar(255) not null,
     Nombre_2 varchar(255),
@@ -13,33 +13,41 @@ CREATE TABLE Usuario(
     Password_cliente varchar(10) not null
 );
 
-CREATE TABLE Categoria(
+CREATE TABLE categoria(
     Id int not null primary key auto_increment,
     Nombre varchar(255) not null,
     Cantidad_disponible varchar(10) not null
 );
 
-CREATE TABLE Producto(
+CREATE TABLE producto(
     Id int not null primary key auto_increment,
     Nombre varchar(255) not null,
     Precio varchar(20) not null,
     Volumen varchar(20) not null,
-    Categoria_id int not null,
-    foreign key (Categoria_id) references Categoria (Id)
+    categoria_id int not null,
+    foreign key (categoria_id) references categoria (Id)
 );
 
-CREATE TABLE Carrito(
+CREATE TABLE carrito(
     Id int not null primary key auto_increment,
     Productos_comprados varchar(100) not null,
-    Producto_id int not null,
-    foreign key (Producto_id) references Producto (Id)
+    producto_id int not null,
+    foreign key (producto_id) references producto (Id)
 );
 
-CREATE TABLE Venta(
+CREATE TABLE venta(
     Id int not null primary key auto_increment,
-    Usuario_id int not null,
-    foreign key (Usuario_id) references Usuario (Id),
-    Carrito_id int not null,
-    foreign key (Carrito_id) references Carrito (Id),
+    usuario_id int not null,
+    foreign key (usuario_id) references usuario (Id),
+    carrito_id int not null,
+    foreign key (carrito_id) references carrito (Id),
     Total varchar(50) not null
 );
+
+/*
+INSERT INTO usuario(Nombre_1, Nombre_2, Apellido_paterno, Apellido_materno, Numero_telefono, Correo, Password_cliente ) VALUES('Albin', 'Ivan', 'Cruz','Castellanos', '9711001281', 'Albinivan@gmail.com', '12345678');
+INSERT INTO categoria(Nombre, Cantidad_disponible) VALUES ('Cappuccino','50');
+INSERT INTO producto(Nombre, Precio, Volumen, categoria_id) VALUES('Cafe', '$ 40.00', '150 ml','1');
+INSERT INTO carrito(Productos_comprados, producto_id) VALUES ('1','1');
+INSERT INTO venta(usuario_id, carrito_id, Total) VALUES ('1','1','$ 40.00');
+*/
