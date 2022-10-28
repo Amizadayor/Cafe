@@ -13,6 +13,7 @@ CREATE TABLE usuario(
     Password_cliente varchar(10) not null
 );
 
+
 CREATE TABLE categoria(
     Id int not null primary key auto_increment,
     Nombre varchar(255) not null,

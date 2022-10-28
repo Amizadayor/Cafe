@@ -71,6 +71,18 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
     // http://localhost:8080/api/usuario/delete/(id) --> ELIMINAR
     $routes->delete('categoria/delete/(:num)', 'Categoria::delete/$1');
 
+    /*----------------  CREACIÓN DE LAS RUTAS DE LA TABLA PRODUCTOS ----------- */
+
+    // http://localhost:8080/api/producto --> GET
+    $routes->get('producto', 'Producto::index');
+    // http://localhost:8080/api/producto/show/(id) --> SHOW
+    $routes->get('producto/show/(:num)','Producto::show/$1');
+    // http://localhost:8080/api/producto/create --> CREAR
+    $routes->post('producto/create', 'Producto::create');
+    // http://localhost:8080/api/producto/update/(id) --> EDITAR
+    $routes->put('producto/update/(:num)', 'Producto::update/$1');
+    // http://localhost:8080/api/producto/delete/(id) --> ELIMINAR
+    $routes->delete('producto/delete/(:num)', 'Producto::delete/$1');
 
 });
 
