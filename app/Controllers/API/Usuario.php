@@ -26,7 +26,7 @@ class Usuario extends ResourceController
         try {
             $usuario = $this->request->getJSON();
             if ($this->model->insert($usuario)):
-                $usuario->id = $this->model->insertID(); // Checar la funcion de esta linea de codigo
+                $usuario->id = $this->model->insertId(); // Checar la funcion de esta linea de codigo
                 return $this->respondCreated($usuario);
             else:
                 return $this->failValidationErrors($this->model->validation->listErrors());
