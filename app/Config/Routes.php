@@ -49,22 +49,34 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
 
     // http://localhost:8080/api/usuario --> GET
     $routes->get('usuario', 'Usuario::index');
-
     // http://localhost:8080/api/usuario/show/(id) --> SHOW
     $routes->get('usuario/show/(:num)','Usuario::show/$1');
-
     // http://localhost:8080/api/usuario/create --> CREAR
     $routes->post('usuario/create', 'Usuario::create');
-
     // http://localhost:8080/api/usuario/update/(id) --> EDITAR
     $routes->put('usuario/update/(:num)', 'Usuario::update/$1');
-
     // http://localhost:8080/api/usuario/delete/(id) --> ELIMINAR
     $routes->delete('usuario/delete/(:num)', 'Usuario::delete/$1');
+
+/*----------------  CREACIÓN DE LAS RUTAS DE LA TABLA CATEGORIA ----------- */
+
+    // http://localhost:8080/api/categoria --> GET
+    $routes->get('categoria', 'Categoria::index');
+    // http://localhost:8080/api/categoria/show/(id) --> SHOW
+    $routes->get('categoria/show/(:num)','Categoria::show/$1');
+    // http://localhost:8080/api/categoria/create --> CREAR
+    $routes->post('categoria/create', 'Categoria::create');
+    // http://localhost:8080/api/categoria/update/(id) --> EDITAR
+    $routes->put('categoria/update/(:num)', 'Categoria::update/$1');
+    // http://localhost:8080/api/usuario/delete/(id) --> ELIMINAR
+    $routes->delete('categoria/delete/(:num)', 'Categoria::delete/$1');
+
 
 });
 
 /*--------------------------------------------------- */
+
+
 
 
 
