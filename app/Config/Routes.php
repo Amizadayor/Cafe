@@ -87,7 +87,35 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
     // http://localhost:8080/api/producto/delete/(id) --> ELIMINAR
     $routes->delete('producto/delete/(:num)', 'Producto::delete/$1');
 
+    /*----------------  CREACIÓN DE LAS RUTAS DE LA TABLA CARRITO ----------- */
+
+    // http://localhost:8080/api/carrito --> GET
+    $routes->get('carrito', 'Carrito::index');
+    // http://localhost:8080/api/carrito/show/(id) --> SHOW
+    $routes->get('carrito/show/(:num)','Carrito::show/$1');
+    // http://localhost:8080/api/usuario/create --> CREAR
+    $routes->post('carrito/create', 'Carrito::create');
+    // http://localhost:8080/api/carrito/update/(id) --> EDITAR
+    $routes->put('carrito/update/(:num)', 'Carrito::update/$1');
+    // http://localhost:8080/api/carrito/delete/(id) --> ELIMINAR
+    $routes->delete('carrito/delete/(:num)', 'Carrito::delete/$1');
+
+    /*----------------  CREACIÓN DE LAS RUTAS DE LA TABLA CARRITO ----------- */
+
+    // http://localhost:8080/api/venta --> GET
+    $routes->get('venta', 'Venta::index');
+    // http://localhost:8080/api/venta/show/(id) --> SHOW
+    $routes->get('venta/show/(:num)','Venta::show/$1');
+    // http://localhost:8080/api/venta/create --> CREAR
+    $routes->post('venta/create', 'Venta::create');
+    // http://localhost:8080/api/venta/update/(id) --> EDITAR
+    $routes->put('venta/update/(:num)', 'Venta::update/$1');
+    // http://localhost:8080/api/venta/delete/(id) --> ELIMINAR
+    $routes->delete('venta/delete/(:num)', 'Venta::delete/$1');
+
 });
+
+
 
 /*--------------------------------------------------- */
 
